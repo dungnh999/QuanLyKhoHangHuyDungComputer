@@ -50,67 +50,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="connect.cs" />
     <Compile Include="Encryptor.cs" />
     <Compile Include="Entities.cs" />
-    <Compile Include="khohang.Context.cs">
+    <Compile Include="KHOHANG.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>khohang.Context.tt</DependentUpon>
+      <DependentUpon>KHOHANG.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="khohang.cs">
+    <Compile Include="KHOHANG.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>khohang.tt</DependentUpon>
+      <DependentUpon>KHOHANG.tt</DependentUpon>
     </Compile>
-    <Compile Include="khohang.Designer.cs">
+    <Compile Include="KHOHANG.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>khohang.edmx</DependentUpon>
+      <DependentUpon>KHOHANG.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tb_Brand.cs">
-      <DependentUpon>khohang.tt</DependentUpon>
+      <DependentUpon>KHOHANG.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Category.cs">
-      <DependentUpon>khohang.tt</DependentUpon>
+      <DependentUpon>KHOHANG.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Products.cs">
-      <DependentUpon>khohang.tt</DependentUpon>
+      <DependentUpon>KHOHANG.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Supplier.cs">
-      <DependentUpon>khohang.tt</DependentUpon>
+      <DependentUpon>KHOHANG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Unit.cs">
+      <DependentUpon>KHOHANG.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Users.cs">
-      <DependentUpon>khohang.tt</DependentUpon>
+      <DependentUpon>KHOHANG.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="khohang.edmx">
+    <EntityDeploy Include="KHOHANG.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>khohang.Designer.cs</LastGenOutput>
+      <LastGenOutput>KHOHANG.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="khohang.edmx.diagram">
-      <DependentUpon>khohang.edmx</DependentUpon>
+    <None Include="KHOHANG.edmx.diagram">
+      <DependentUpon>KHOHANG.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="khohang.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>khohang.edmx</DependentUpon>
-      <LastGenOutput>khohang.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="khohang.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>khohang.edmx</DependentUpon>
-      <LastGenOutput>khohang.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="KHOHANG.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KHOHANG.edmx</DependentUpon>
+      <LastGenOutput>KHOHANG.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KHOHANG.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KHOHANG.edmx</DependentUpon>
+      <LastGenOutput>KHOHANG.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

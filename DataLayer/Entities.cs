@@ -25,9 +25,9 @@ namespace DataLayer
 
             //Decryptor noi dung
             string servername = Encryptor.Decrypt(cp.servername, "qwertyuiop", true);
-            string username = Encryptor.Encrypt(cp.username, "qwertyuiop", true);
-            string password = Encryptor.Encrypt(cp.password, "qwertyuiop", true);
-            string database = Encryptor.Encrypt(cp.database, "qwertyuiop", true);
+            string username = Encryptor.Decrypt(cp.username, "qwertyuiop", true);
+            string password = Encryptor.Decrypt(cp.password, "qwertyuiop", true);
+            string database = Encryptor.Decrypt(cp.database, "qwertyuiop", true);
 
 
             SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
@@ -37,13 +37,15 @@ namespace DataLayer
             sqlConnectBuilder.InitialCatalog = database;
             sqlConnectBuilder.UserID = username;
             sqlConnectBuilder.Password = password;
+            sqlConnectBuilder.Encrypt = false;
+            sqlConnectBuilder.MultipleActiveResultSets = true;
 
             string sqlConnectString = sqlConnectBuilder.ToString();
             EntityConnectionStringBuilder entityBuilder = new EntityConnectionStringBuilder();
             entityBuilder.Provider = "System.Data.SqlClient";
             entityBuilder.ProviderConnectionString = sqlConnectString;
+            entityBuilder.Metadata = @"res://*/KHOHANG.csdl|res://*/KHOHANG.ssdl|res://*/KHOHANG.msl";
 
-            entityBuilder.Metadata = @"res://*/khohang.csdl://*/khohang.ssdl|res://*/khohang.msl";
             EntityConnection connection = new EntityConnection(entityBuilder.ConnectionString);
 
             fs.Close();

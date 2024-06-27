@@ -29,6 +29,7 @@ namespace DataLayer
         public virtual DbSet<tb_Category> tb_Category { get; set; }
         public virtual DbSet<tb_Products> tb_Products { get; set; }
         public virtual DbSet<tb_Supplier> tb_Supplier { get; set; }
+        public virtual DbSet<tb_Unit> tb_Unit { get; set; }
         public virtual DbSet<tb_Users> tb_Users { get; set; }
     }
 }

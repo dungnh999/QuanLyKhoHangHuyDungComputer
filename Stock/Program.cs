@@ -2,9 +2,11 @@
 using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
+using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -35,11 +37,11 @@ namespace Stock
 
                 //Decryptor noi dung
                 string servername = Encryptor.Decrypt(cp.servername, "qwertyuiop", true);
-                string username = Encryptor.Encrypt(cp.username, "qwertyuiop", true);
-                string password = Encryptor.Encrypt(cp.password, "qwertyuiop", true);
-                string database = Encryptor.Encrypt(cp.database, "qwertyuiop", true);
+                string username = Encryptor.Decrypt(cp.username, "qwertyuiop", true);
+                string password = Encryptor.Decrypt(cp.password, "qwertyuiop", true);
+                string database = Encryptor.Decrypt(cp.database, "qwertyuiop", true);
 
-                conStr = "Data Sourse=" + servername + "' Initial Catalog=" + database + "; User ID" + username + "; Password=" + password + ";";
+                conStr = "Data Source=" + servername + ";Initial Catalog=" + database + ";User ID=" + username + ";Password=" + password + ";";
                 connoi = conStr;
                 SqlConnection con = new SqlConnection(conStr);
 
@@ -55,10 +57,12 @@ namespace Stock
 
                 con.Close();
                 fs.Close();
+                Application.Run(new MainForm());
             }
             else
             {
                 Application.Run(new frmConnect());
+               
             }
         }
          public static string connoi = "";

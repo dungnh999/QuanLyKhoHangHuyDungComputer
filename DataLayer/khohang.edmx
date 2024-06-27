@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KhoHuyDungComputerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="KHOHANG.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tb_Brand">
           <Key>
             <PropertyRef Name="ID" />
@@ -53,6 +53,13 @@
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="STATUS" Type="int" />
         </EntityType>
+        <EntityType Name="tb_Unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="tb_Users">
           <Key>
             <PropertyRef Name="ID" />
@@ -65,18 +72,19 @@
           <Property Name="STATUS" Type="int" />
           <Property Name="CREATE_AT" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="KhoHuyDungComputerModelStoreContainer">
+        <EntityContainer Name="KHOHANGStoreContainer">
           <EntitySet Name="tb_Brand" EntityType="Self.tb_Brand" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Category" EntityType="Self.tb_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Products" EntityType="Self.tb_Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Supplier" EntityType="Self.tb_Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Unit" EntityType="Self.tb_Unit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Users" EntityType="Self.tb_Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="KhoHuyDungComputerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="KHOHANG" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tb_Brand">
           <Key>
             <PropertyRef Name="ID" />
@@ -125,6 +133,13 @@
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="STATUS" Type="Int32" />
         </EntityType>
+        <EntityType Name="tb_Unit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="tb_Users">
           <Key>
             <PropertyRef Name="ID" />
@@ -142,6 +157,7 @@
           <EntitySet Name="tb_Category" EntityType="Self.tb_Category" />
           <EntitySet Name="tb_Products" EntityType="Self.tb_Products" />
           <EntitySet Name="tb_Supplier" EntityType="Self.tb_Supplier" />
+          <EntitySet Name="tb_Unit" EntityType="Self.tb_Unit" />
           <EntitySet Name="tb_Users" EntityType="Self.tb_Users" />
         </EntityContainer>
       </Schema>
@@ -149,9 +165,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="KhoHuyDungComputerModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="KHOHANGStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="tb_Brand">
-            <EntityTypeMapping TypeName="KhoHuyDungComputerModel.tb_Brand">
+            <EntityTypeMapping TypeName="KHOHANG.tb_Brand">
               <MappingFragment StoreEntitySet="tb_Brand">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -163,7 +179,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Category">
-            <EntityTypeMapping TypeName="KhoHuyDungComputerModel.tb_Category">
+            <EntityTypeMapping TypeName="KHOHANG.tb_Category">
               <MappingFragment StoreEntitySet="tb_Category">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -177,7 +193,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Products">
-            <EntityTypeMapping TypeName="KhoHuyDungComputerModel.tb_Products">
+            <EntityTypeMapping TypeName="KHOHANG.tb_Products">
               <MappingFragment StoreEntitySet="tb_Products">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -191,7 +207,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tb_Supplier">
-            <EntityTypeMapping TypeName="KhoHuyDungComputerModel.tb_Supplier">
+            <EntityTypeMapping TypeName="KHOHANG.tb_Supplier">
               <MappingFragment StoreEntitySet="tb_Supplier">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
@@ -202,8 +218,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tb_Unit">
+            <EntityTypeMapping TypeName="KHOHANG.tb_Unit">
+              <MappingFragment StoreEntitySet="tb_Unit">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tb_Users">
-            <EntityTypeMapping TypeName="KhoHuyDungComputerModel.tb_Users">
+            <EntityTypeMapping TypeName="KHOHANG.tb_Users">
               <MappingFragment StoreEntitySet="tb_Users">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />

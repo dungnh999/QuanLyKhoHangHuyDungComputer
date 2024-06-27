@@ -42,6 +42,7 @@ namespace Stock
             {
                 con.Open();
                 MessageBox.Show("Kết nối thành công", "Thông báo", MessageBoxButtons.OK , MessageBoxIcon.Information);
+                Application.Run(new MainForm());
             }
             catch 
             {

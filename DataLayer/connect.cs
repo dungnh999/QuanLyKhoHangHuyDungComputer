@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
+    [Serializable]
     public class connect
     {
         public string servername;

@@ -32,6 +32,7 @@ namespace Stock
                 FileStream fs = File.Open("connectdb.dba", FileMode.Open, FileAccess.Read);
                 connect cp = (connect)bf.Deserialize(fs);
 
+
                 //Decryptor noi dung
                 string servername = Encryptor.Decrypt(cp.servername, "qwertyuiop", true);
                 string username = Encryptor.Encrypt(cp.username, "qwertyuiop", true);

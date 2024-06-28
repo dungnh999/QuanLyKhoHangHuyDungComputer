@@ -81,7 +81,7 @@
     <Compile Include="tb_Supplier.cs">
       <DependentUpon>KHOHANG.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_Unit.cs">
+    <Compile Include="tb_Supplier_Type.cs">
       <DependentUpon>KHOHANG.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Users.cs">

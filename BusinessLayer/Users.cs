@@ -14,6 +14,11 @@ namespace BusinessLayer
             db = Entities.CreateEntities();
         }
 
+        public tb_Users getInfo(string username) { 
+            return db.tb_Users.FirstOrDefault(x => x.USERNAME == username);
+        }
+
+
         public bool checkLogin( string username, string password)
         {
             var check = db.tb_Users.FirstOrDefault(x => x.USERNAME == username && x.PASSWORD == password);

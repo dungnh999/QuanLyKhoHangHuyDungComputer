@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class Unit
+    public class SupplierType
     {
         Entities db;
-        public Unit()
+
+        public SupplierType()
         {
             db = Entities.CreateEntities();
         }
 
-       /* public List<tb_Unit> getList()
+        public List<tb_su> getList()
         {
             return db.tb_Unit.ToList();
-        }*/
+        }
     }
 }

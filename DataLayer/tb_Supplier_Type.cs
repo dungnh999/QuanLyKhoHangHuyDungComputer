@@ -12,7 +12,7 @@ namespace DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_Unit
+    public partial class tb_Supplier_Type
     {
         public int ID { get; set; }
         public string NAME { get; set; }

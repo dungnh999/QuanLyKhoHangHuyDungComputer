@@ -15,7 +15,7 @@ namespace Stock
 {
     public partial class MainForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {   
-        Supplier _unit;
+        frmSupplier _unit;
         public MainForm()
         {
             InitializeComponent();
@@ -33,14 +33,30 @@ namespace Stock
             fadeOut: false
         );
 
+        void openForm(Type TypeForm)
+        {
+            foreach(var frm in MdiChildren)
+            {
+                frm.Activate();
+                return;
+            }
+            Form f = (Form)Activator.CreateInstance(TypeForm);
+            f.MdiParent = this;
+            f.Show();
+        }
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ShowProgressPanel(this, options);
+            Common.handle =  ShowProgressPanel(this, options);
             frmLogin frmLogin = new frmLogin();
             frmLogin.ShowDialog();
-
            // _unit = new Supplier();
+        }
+
+        private void mnSupplier_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            openForm(typeof(frmSupplier));
         }
     }
 }

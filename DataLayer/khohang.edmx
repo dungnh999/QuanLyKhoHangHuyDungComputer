@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KHOHANG.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KHOHANG.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tb_Brand">
           <Key>
             <PropertyRef Name="ID" />
@@ -46,14 +46,26 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="nvarchar" MaxLength="200" />
           <Property Name="PHONE" Type="nvarchar" MaxLength="10" />
-          <Property Name="FAX" Type="nvarchar" MaxLength="10" />
+          <Property Name="TAX" Type="nvarchar" MaxLength="10" />
+          <Property Name="TYPE" Type="int" />
+          <Property Name="UPDATE_BY" Type="int" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="100" />
+          <Property Name="NOTE" Type="nvarchar" MaxLength="200" />
+          <Property Name="NAME_ACCOUNT" Type="nvarchar" MaxLength="50" />
+          <Property Name="NUMBER_BANK" Type="nvarchar" MaxLength="15" />
+          <Property Name="NAME_BANK" Type="nvarchar" MaxLength="50" />
+          <Property Name="BRANCH_BANK" Type="nvarchar" MaxLength="50" />
+          <Property Name="CODE" Type="varchar" MaxLength="50" />
           <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
           <Property Name="STATUS" Type="int" />
+          <Property Name="CREATE_AT" Type="datetime" />
+          <Property Name="UPDATE_AT" Type="datetime" />
+          <Property Name="CREATE_BY" Type="int" />
         </EntityType>
-        <EntityType Name="tb_Unit">
+        <EntityType Name="tb_Supplier_Type">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -77,11 +89,10 @@
           <EntitySet Name="tb_Category" EntityType="Self.tb_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Products" EntityType="Self.tb_Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Supplier" EntityType="Self.tb_Supplier" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tb_Unit" EntityType="Self.tb_Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Supplier_Type" EntityType="Self.tb_Supplier_Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Users" EntityType="Self.tb_Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KHOHANG" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -122,24 +133,6 @@
           <Property Name="ID_EMPLOYEE" Type="Int32" />
           <Property Name="CREATE_AT" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
-        <EntityType Name="tb_Supplier">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="PHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="FAX" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="STATUS" Type="Int32" />
-        </EntityType>
-        <EntityType Name="tb_Unit">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="tb_Users">
           <Key>
             <PropertyRef Name="ID" />
@@ -156,10 +149,40 @@
           <EntitySet Name="tb_Brand" EntityType="Self.tb_Brand" />
           <EntitySet Name="tb_Category" EntityType="Self.tb_Category" />
           <EntitySet Name="tb_Products" EntityType="Self.tb_Products" />
-          <EntitySet Name="tb_Supplier" EntityType="Self.tb_Supplier" />
-          <EntitySet Name="tb_Unit" EntityType="Self.tb_Unit" />
           <EntitySet Name="tb_Users" EntityType="Self.tb_Users" />
+          <EntitySet Name="tb_Supplier" EntityType="KHOHANG.tb_Supplier" />
+          <EntitySet Name="tb_Supplier_Type" EntityType="KHOHANG.tb_Supplier_Type" />
         </EntityContainer>
+        <EntityType Name="tb_Supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PHONE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TAX" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE" Type="Int32" />
+          <Property Name="UPDATE_BY" Type="Int32" />
+          <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NOTE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_ACCOUNT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NUMBER_BANK" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="NAME_BANK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BRANCH_BANK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" />
+          <Property Name="CREATE_AT" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_AT" Type="DateTime" Precision="3" />
+          <Property Name="CREATE_BY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_Supplier_Type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -206,26 +229,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_Supplier">
-            <EntityTypeMapping TypeName="KHOHANG.tb_Supplier">
-              <MappingFragment StoreEntitySet="tb_Supplier">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
-                <ScalarProperty Name="FAX" ColumnName="FAX" />
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_Unit">
-            <EntityTypeMapping TypeName="KHOHANG.tb_Unit">
-              <MappingFragment StoreEntitySet="tb_Unit">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_Users">
             <EntityTypeMapping TypeName="KHOHANG.tb_Users">
               <MappingFragment StoreEntitySet="tb_Users">
@@ -236,6 +239,38 @@
                 <ScalarProperty Name="ROLE" ColumnName="ROLE" />
                 <ScalarProperty Name="STATUS" ColumnName="STATUS" />
                 <ScalarProperty Name="CREATE_AT" ColumnName="CREATE_AT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Supplier">
+            <EntityTypeMapping TypeName="KHOHANG.tb_Supplier">
+              <MappingFragment StoreEntitySet="tb_Supplier">
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="UPDATE_AT" ColumnName="UPDATE_AT" />
+                <ScalarProperty Name="CREATE_AT" ColumnName="CREATE_AT" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="BRANCH_BANK" ColumnName="BRANCH_BANK" />
+                <ScalarProperty Name="NAME_BANK" ColumnName="NAME_BANK" />
+                <ScalarProperty Name="NUMBER_BANK" ColumnName="NUMBER_BANK" />
+                <ScalarProperty Name="NAME_ACCOUNT" ColumnName="NAME_ACCOUNT" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="TAX" ColumnName="TAX" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Supplier_Type">
+            <EntityTypeMapping TypeName="KHOHANG.tb_Supplier_Type">
+              <MappingFragment StoreEntitySet="tb_Supplier_Type">
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

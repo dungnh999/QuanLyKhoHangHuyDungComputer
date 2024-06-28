@@ -14,11 +14,23 @@ namespace DataLayer
     
     public partial class tb_Supplier
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string NAME { get; set; }
         public string PHONE { get; set; }
-        public string FAX { get; set; }
+        public string TAX { get; set; }
+        public Nullable<int> TYPE { get; set; }
+        public Nullable<int> UPDATE_BY { get; set; }
+        public string ADDRESS { get; set; }
+        public string NOTE { get; set; }
+        public string NAME_ACCOUNT { get; set; }
+        public string NUMBER_BANK { get; set; }
+        public string NAME_BANK { get; set; }
+        public string BRANCH_BANK { get; set; }
+        public string CODE { get; set; }
         public string EMAIL { get; set; }
         public Nullable<int> STATUS { get; set; }
+        public Nullable<System.DateTime> CREATE_AT { get; set; }
+        public Nullable<System.DateTime> UPDATE_AT { get; set; }
+        public Nullable<int> CREATE_BY { get; set; }
     }
 }

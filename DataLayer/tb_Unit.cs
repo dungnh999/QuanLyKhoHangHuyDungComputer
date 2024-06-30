@@ -12,17 +12,9 @@ namespace DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_Category
+    public partial class tb_Unit
     {
         public int ID { get; set; }
         public string NAME { get; set; }
-        public string CODE { get; set; }
-        public string AVATAR { get; set; }
-        public Nullable<int> SORT { get; set; }
-        public Nullable<int> STATUS { get; set; }
-        public Nullable<System.DateTime> CREATE_AT { get; set; }
-        public Nullable<int> CREATE_BY { get; set; }
-        public Nullable<System.DateTime> UPDATE_AT { get; set; }
-        public Nullable<int> UPDATE_BY { get; set; }
     }
 }

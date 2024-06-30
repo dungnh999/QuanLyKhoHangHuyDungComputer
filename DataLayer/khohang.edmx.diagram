@@ -4,13 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ead3134ba70c45608e0399a1f19fb644" Name="Diagram1">
-        <EntityTypeShape EntityType="KHOHANG.tb_Brand" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KHOHANG.tb_Category" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KHOHANG.tb_Products" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KHOHANG.tb_Users" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KHOHANG.tb_Supplier" Width="1.5" PointX="5.375" PointY="4.75" />
-        <EntityTypeShape EntityType="KHOHANG.tb_Supplier_Type" Width="1.5" PointX="7.375" PointY="0.75" />
+      <Diagram DiagramId="fe7507af3f734ff5a68866c97724f121" Name="Diagram1">
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Brand" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Category" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Products" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Supplier" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Supplier_Type" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Unit" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Users" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

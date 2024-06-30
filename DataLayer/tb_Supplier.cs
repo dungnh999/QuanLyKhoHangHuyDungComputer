@@ -32,5 +32,6 @@ namespace DataLayer
         public Nullable<System.DateTime> CREATE_AT { get; set; }
         public Nullable<System.DateTime> UPDATE_AT { get; set; }
         public Nullable<int> CREATE_BY { get; set; }
+        public string ID_CARD { get; set; }
     }
 }

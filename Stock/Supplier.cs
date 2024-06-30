@@ -2,6 +2,9 @@
 using BusinessLayer.DTO;
 using DataLayer;
 using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting.Preview;
+using DevExpress.XtraReports.UI;
+using Stock.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,9 +27,10 @@ namespace Stock
         bool _actionAdd;
         int _id = 0;
         Supplier _supplier;
-
+        SupplierType _supplierType;
         private void frmSupplier_Load(object sender, EventArgs e)
         {
+            loadOptionType();
             _showHide(true);
             loadData();
         }
@@ -36,6 +40,23 @@ namespace Stock
             _supplier = new Supplier();
             gvDanhSach.DataSource = _supplier.getAll();
             gridView3.OptionsBehavior.Editable = false;
+        }
+
+        void _reset()
+        {
+            txtName.Text = "";
+            txtCode.Text = "";
+            txtNameBank.Text = "";
+            txtPhone.Text = "";
+            txtEmail.Text = "";
+            txtBanchBank.Text = "";
+            txtTax.Text = "";
+            txtNumberBank.Text = "";
+            txtNameAccount.Text = "";
+            txtCCCD.Text = "";
+            txtAddress.Text = "";
+            txtNote.Text = "";
+            cboTypeSupplier.Text = "";
         }
 
         void _showHide(bool kt)
@@ -58,12 +79,13 @@ namespace Stock
             txtCCCD.Enabled = !kt;
             txtAddress.Enabled = !kt;
             txtNote.Enabled = !kt;
-            cbbTypeSupplier.Enabled = !kt;
+            cboTypeSupplier.Enabled = !kt;
         }
 
         private void bbtnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _showHide(false);
+            _reset();
             _actionAdd = true;
         }
 
@@ -77,13 +99,17 @@ namespace Stock
         private void bbtnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             saveData();
+            _reset();
             _showHide(true);
             loadData();
         }
 
         void loadOptionType()
         {
-            cbbTypeSupplier.Properties.Items.AddRange(["Cá nhân", "1"], 'Doanh Nghiệp');
+            _supplierType = new SupplierType();
+            cboTypeSupplier.DataSource = _supplierType.getList();
+            cboTypeSupplier.DisplayMember = "NAME";
+            cboTypeSupplier.ValueMember = "ID";
         }
 
 
@@ -107,13 +133,14 @@ namespace Stock
                 sp.BRANCH_BANK = txtBanchBank.Text;   
                 sp.TAX = txtTax.Text;
                 sp.NUMBER_BANK = txtNumberBank.Text;
-                sp.TYPE = 1;
+                sp.TYPE = int.Parse(cboTypeSupplier.SelectedValue.ToString());
                 sp.NAME_ACCOUNT = txtNameAccount.Text;
                 sp.ADDRESS = txtAddress.Text;
                 sp.NOTE = txtNote.Text;
                 sp.STATUS = 1;
                 sp.CREATE_BY = Common.UserPublic.ID;
                 sp.CREATE_AT = DateTime.Now;
+                sp.ID_CARD = txtCCCD.Text;
                 _supplier.Add(sp);
             }
             else
@@ -127,13 +154,14 @@ namespace Stock
                 sp.BRANCH_BANK = txtBanchBank.Text;
                 sp.TAX = txtTax.Text;
                 sp.NUMBER_BANK = txtNumberBank.Text;
-                sp.TYPE = 1;
+                sp.TYPE = int.Parse(cboTypeSupplier.SelectedValue.ToString());
                 sp.NAME_ACCOUNT = txtNameAccount.Text;
                 sp.ADDRESS = txtAddress.Text;
                 sp.NOTE = txtNote.Text;
+                sp.ID_CARD = txtCCCD.Text;
                 sp.STATUS = 1;
-                sp.CREATE_BY = Common.UserPublic.ID;
-                sp.CREATE_AT = DateTime.Now;
+                sp.UPDATE_BY = Common.UserPublic.ID;
+                sp.UPDATE_AT = DateTime.Now;
                 _supplier.Update(sp);
             }
 
@@ -167,12 +195,21 @@ namespace Stock
                     txtNameAccount.Text = dt.NAME_ACCOUNT;
                     txtAddress.Text = dt.ADDRESS;
                     txtNote.Text = dt.NOTE;
-                    txtCCCD.Text = "111";
+                    cboTypeSupplier.SelectedValue = dt.TYPE;
+                    txtCCCD.Text = dt.ID_CARD;
                 }
             }
         }
 
-
+        private void bbtnPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            repSupplier frmRep = new repSupplier();
+            DocumentViewer documentViewer = new DocumentViewer();
+            var lstSupplier = _supplier.getAll();
+            frmRep.InitData(lstSupplier);
+            documentViewer.DocumentSource = frmRep;
+            frmRep.ShowPreviewDialog();
+        }
 
 
 
@@ -262,6 +299,5 @@ namespace Stock
 
         }
 
-       
     }
 }

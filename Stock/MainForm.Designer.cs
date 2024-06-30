@@ -39,10 +39,12 @@
             this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
             this.lblUserName = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.mnCategoryProduct = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -56,7 +58,6 @@
             // 
             // ribbonControl1
             // 
-            this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(35, 37, 35, 37);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
@@ -68,13 +69,12 @@
             this.barEditItem1,
             this.lblUserName,
             this.barButtonItem5,
-            this.barButtonItem6,
-            this.barButtonItem7});
+            this.mnCategoryProduct,
+            this.barButtonItem7,
+            this.barButtonItem4});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 10;
+            this.ribbonControl1.MaxItemId = 11;
             this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.OptionsMenuMinWidth = 385;
             this.ribbonControl1.OptionsTouch.AffectOnlyRibbon = true;
             this.ribbonControl1.PageHeaderItemLinks.Add(this.lblUserName);
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -82,7 +82,7 @@
             this.ribbonPage1});
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHypertextLabel1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1769, 182);
+            this.ribbonControl1.Size = new System.Drawing.Size(1516, 177);
             // 
             // barButtonItem1
             // 
@@ -150,14 +150,15 @@
             this.barButtonItem5.LargeWidth = 70;
             this.barButtonItem5.Name = "barButtonItem5";
             // 
-            // barButtonItem6
+            // mnCategoryProduct
             // 
-            this.barButtonItem6.Caption = "Danh mục";
-            this.barButtonItem6.Id = 8;
-            this.barButtonItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
-            this.barButtonItem6.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
-            this.barButtonItem6.LargeWidth = 70;
-            this.barButtonItem6.Name = "barButtonItem6";
+            this.mnCategoryProduct.Caption = "Danh mục";
+            this.mnCategoryProduct.Id = 8;
+            this.mnCategoryProduct.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
+            this.mnCategoryProduct.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
+            this.mnCategoryProduct.LargeWidth = 70;
+            this.mnCategoryProduct.Name = "mnCategoryProduct";
+            this.mnCategoryProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnCategoryProduct_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -168,24 +169,38 @@
             this.barButtonItem7.LargeWidth = 70;
             this.barButtonItem7.Name = "barButtonItem7";
             // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "Sản phẩm NCC";
+            this.barButtonItem4.Id = 10;
+            this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.ribbonPage2.Appearance.Options.UseFont = true;
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup4});
             this.ribbonPage2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage2.ImageOptions.Image")));
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Sản Phẩm";
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem6, true);
+            this.ribbonPageGroup2.ItemLinks.Add(this.mnCategoryProduct, true);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem5, true);
-            this.ribbonPageGroup2.ItemLinks.Add(this.mnSupplier, true);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem7, true);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Thông tin thiết lập";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.mnSupplier);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem4, true);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Nhà cung cấp";
             // 
             // ribbonPage1
             // 
@@ -221,13 +236,12 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1769, 754);
+            this.ClientSize = new System.Drawing.Size(1516, 613);
             this.Controls.Add(this.ribbonControl1);
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("MainForm.IconOptions.Image")));
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Ribbon = this.ribbonControl1;
             this.Text = " ";
@@ -258,9 +272,11 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel repositoryItemHypertextLabel1;
         public DevExpress.XtraBars.BarStaticItem lblUserName;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.BarButtonItem mnCategoryProduct;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }

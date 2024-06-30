@@ -44,7 +44,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(47, 9);
+            this.label2.Location = new System.Drawing.Point(62, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(200, 19);
             this.label2.TabIndex = 1;
@@ -54,43 +55,50 @@
             // 
             // txtLgUsername
             // 
-            this.txtLgUsername.Location = new System.Drawing.Point(102, 50);
+            this.txtLgUsername.EditValue = "admin";
+            this.txtLgUsername.Location = new System.Drawing.Point(119, 62);
+            this.txtLgUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLgUsername.Name = "txtLgUsername";
-            this.txtLgUsername.Size = new System.Drawing.Size(171, 20);
+            this.txtLgUsername.Size = new System.Drawing.Size(200, 22);
             this.txtLgUsername.TabIndex = 2;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(21, 53);
+            this.labelControl1.Location = new System.Drawing.Point(24, 65);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(75, 13);
+            this.labelControl1.Size = new System.Drawing.Size(90, 16);
             this.labelControl1.TabIndex = 3;
             this.labelControl1.Text = "Tên đăng nhập ";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(21, 85);
+            this.labelControl2.Location = new System.Drawing.Point(24, 105);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(44, 13);
+            this.labelControl2.Size = new System.Drawing.Size(52, 16);
             this.labelControl2.TabIndex = 5;
             this.labelControl2.Text = "Mật khẩu";
             this.labelControl2.Click += new System.EventHandler(this.labelControl2_Click);
             // 
             // txtLgPassword
             // 
-            this.txtLgPassword.Location = new System.Drawing.Point(102, 82);
+            this.txtLgPassword.EditValue = "123456";
+            this.txtLgPassword.Location = new System.Drawing.Point(119, 101);
+            this.txtLgPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLgPassword.Name = "txtLgPassword";
             this.txtLgPassword.Properties.UseSystemPasswordChar = true;
-            this.txtLgPassword.Size = new System.Drawing.Size(171, 20);
+            this.txtLgPassword.Size = new System.Drawing.Size(200, 22);
             this.txtLgPassword.TabIndex = 4;
             // 
             // btnLogin
             // 
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.btnLogin.Location = new System.Drawing.Point(176, 121);
+            this.btnLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.ImageOptions.Image")));
+            this.btnLogin.Location = new System.Drawing.Point(219, 165);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(97, 46);
+            this.btnLogin.Size = new System.Drawing.Size(99, 39);
             this.btnLogin.TabIndex = 7;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -101,20 +109,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.btnExit.Location = new System.Drawing.Point(73, 121);
+            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
+            this.btnExit.Location = new System.Drawing.Point(130, 165);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.ShowToolTips = false;
-            this.btnExit.Size = new System.Drawing.Size(97, 46);
+            this.btnExit.Size = new System.Drawing.Size(83, 39);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "Thoát";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 178);
+            this.ClientSize = new System.Drawing.Size(336, 219);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.labelControl2);
@@ -123,6 +132,7 @@
             this.Controls.Add(this.txtLgUsername);
             this.Controls.Add(this.label2);
             this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("frmLogin.IconOptions.LargeImage")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

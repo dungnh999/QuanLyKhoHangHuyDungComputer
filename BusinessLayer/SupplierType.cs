@@ -16,9 +16,9 @@ namespace BusinessLayer
             db = Entities.CreateEntities();
         }
 
-        public List<tb_su> getList()
+        public List<tb_Supplier_Type> getList()
         {
-            return db.tb_Unit.ToList();
+            return db.tb_Supplier_Type.ToList();
         }
     }
 }

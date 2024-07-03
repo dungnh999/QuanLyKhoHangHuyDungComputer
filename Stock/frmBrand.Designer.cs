@@ -54,33 +54,34 @@
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtNote = new DevExpress.XtraEditors.TextEdit();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btnUpdateImage = new DevExpress.XtraEditors.SimpleButton();
+            this.picBrand = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblStartRequid = new DevExpress.XtraEditors.LabelControl();
-            this.txtCodeCategory = new DevExpress.XtraEditors.TextEdit();
+            this.txtCodeBrand = new DevExpress.XtraEditors.TextEdit();
             this.lblCode = new DevExpress.XtraEditors.LabelControl();
             this.lblName = new DevExpress.XtraEditors.LabelControl();
             this.gvDanhSach = new DevExpress.XtraGrid.GridControl();
-            this.grvRowData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grvDanhSach = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NAME = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.AVATAR = new DevExpress.XtraGrid.Columns.GridColumn();
             this.STATUS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CREATE_BY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CREATE_AT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UPDATE_BY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UPDATE_AT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.txtNote = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
@@ -91,12 +92,12 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodeCategory.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvRowData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBrand.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodeBrand.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvDanhSach)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -151,6 +152,7 @@
             this.bbtnAdd.Id = 0;
             this.bbtnAdd.ImageOptions.SvgImage = global::Stock.Properties.Resources.actions_addcircled;
             this.bbtnAdd.Name = "bbtnAdd";
+            this.bbtnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtnAdd_ItemClick);
             // 
             // bbtnEdit
             // 
@@ -158,6 +160,7 @@
             this.bbtnEdit.Id = 1;
             this.bbtnEdit.ImageOptions.SvgImage = global::Stock.Properties.Resources.actions_edit;
             this.bbtnEdit.Name = "bbtnEdit";
+            this.bbtnEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtnEdit_ItemClick);
             // 
             // bbtnRemove
             // 
@@ -165,6 +168,7 @@
             this.bbtnRemove.Id = 2;
             this.bbtnRemove.ImageOptions.SvgImage = global::Stock.Properties.Resources.delete;
             this.bbtnRemove.Name = "bbtnRemove";
+            this.bbtnRemove.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtnRemove_ItemClick);
             // 
             // bbtnSave
             // 
@@ -172,6 +176,7 @@
             this.bbtnSave.Id = 4;
             this.bbtnSave.ImageOptions.SvgImage = global::Stock.Properties.Resources.save;
             this.bbtnSave.Name = "bbtnSave";
+            this.bbtnSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtnSave_ItemClick);
             // 
             // bbtn_cancel
             // 
@@ -179,6 +184,7 @@
             this.bbtn_cancel.Id = 3;
             this.bbtn_cancel.ImageOptions.SvgImage = global::Stock.Properties.Resources.removedataitems;
             this.bbtn_cancel.Name = "bbtn_cancel";
+            this.bbtn_cancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_cancel_ItemClick);
             // 
             // bbtnReload
             // 
@@ -186,6 +192,7 @@
             this.bbtnReload.Id = 6;
             this.bbtnReload.ImageOptions.SvgImage = global::Stock.Properties.Resources.resetlayoutoptions;
             this.bbtnReload.Name = "bbtnReload";
+            this.bbtnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtnReload_ItemClick);
             // 
             // barDockControl1
             // 
@@ -362,12 +369,12 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.labelControl3);
             this.splitContainer1.Panel1.Controls.Add(this.txtNote);
-            this.splitContainer1.Panel1.Controls.Add(this.simpleButton7);
-            this.splitContainer1.Panel1.Controls.Add(this.pictureEdit1);
+            this.splitContainer1.Panel1.Controls.Add(this.btnUpdateImage);
+            this.splitContainer1.Panel1.Controls.Add(this.picBrand);
             this.splitContainer1.Panel1.Controls.Add(this.labelControl2);
             this.splitContainer1.Panel1.Controls.Add(this.labelControl1);
             this.splitContainer1.Panel1.Controls.Add(this.lblStartRequid);
-            this.splitContainer1.Panel1.Controls.Add(this.txtCodeCategory);
+            this.splitContainer1.Panel1.Controls.Add(this.txtCodeBrand);
             this.splitContainer1.Panel1.Controls.Add(this.lblCode);
             this.splitContainer1.Panel1.Controls.Add(this.txtName);
             this.splitContainer1.Panel1.Controls.Add(this.lblName);
@@ -381,185 +388,23 @@
             this.splitContainer1.SplitterDistance = 171;
             this.splitContainer1.TabIndex = 22;
             // 
-            // labelControl2
+            // labelControl3
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(174, 136);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(150, 13);
-            this.labelControl2.TabIndex = 35;
-            this.labelControl2.Text = "(*) : Các trường bắt buộc nhập";
+            this.labelControl3.Location = new System.Drawing.Point(216, 96);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(42, 16);
+            this.labelControl3.TabIndex = 39;
+            this.labelControl3.Text = "Ghi chú";
             // 
-            // labelControl1
+            // txtNote
             // 
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(466, 51);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(8, 16);
-            this.labelControl1.TabIndex = 34;
-            this.labelControl1.Text = "*";
-            // 
-            // lblStartRequid
-            // 
-            this.lblStartRequid.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblStartRequid.Appearance.Options.UseForeColor = true;
-            this.lblStartRequid.Location = new System.Drawing.Point(166, 55);
-            this.lblStartRequid.Name = "lblStartRequid";
-            this.lblStartRequid.Size = new System.Drawing.Size(8, 16);
-            this.lblStartRequid.TabIndex = 33;
-            this.lblStartRequid.Text = "*";
-            // 
-            // txtCodeCategory
-            // 
-            this.txtCodeCategory.Location = new System.Drawing.Point(571, 53);
-            this.txtCodeCategory.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.txtCodeCategory.MenuManager = this.barManager2;
-            this.txtCodeCategory.Name = "txtCodeCategory";
-            this.txtCodeCategory.Size = new System.Drawing.Size(170, 22);
-            this.txtCodeCategory.TabIndex = 31;
-            // 
-            // lblCode
-            // 
-            this.lblCode.Location = new System.Drawing.Point(474, 56);
-            this.lblCode.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(89, 16);
-            this.lblCode.TabIndex = 32;
-            this.lblCode.Text = "Mã thương hiệu";
-            // 
-            // lblName
-            // 
-            this.lblName.Location = new System.Drawing.Point(176, 56);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(94, 16);
-            this.lblName.TabIndex = 30;
-            this.lblName.Text = "Tên thương hiệu";
-            // 
-            // gvDanhSach
-            // 
-            this.gvDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvDanhSach.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.gvDanhSach.Location = new System.Drawing.Point(10, 10);
-            this.gvDanhSach.MainView = this.grvRowData;
-            this.gvDanhSach.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.gvDanhSach.MenuManager = this.barManager2;
-            this.gvDanhSach.Name = "gvDanhSach";
-            this.gvDanhSach.Size = new System.Drawing.Size(1165, 293);
-            this.gvDanhSach.TabIndex = 0;
-            this.gvDanhSach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvRowData});
-            // 
-            // grvRowData
-            // 
-            this.grvRowData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.STT,
-            this.ID,
-            this.NAME,
-            this.CODE,
-            this.STATUS,
-            this.CREATE_BY,
-            this.CREATE_AT,
-            this.UPDATE_BY,
-            this.UPDATE_AT});
-            this.grvRowData.GridControl = this.gvDanhSach;
-            this.grvRowData.Name = "grvRowData";
-            this.grvRowData.OptionsView.ShowGroupPanel = false;
-            // 
-            // STT
-            // 
-            this.STT.Caption = "STT";
-            this.STT.FieldName = "STT";
-            this.STT.Name = "STT";
-            this.STT.Visible = true;
-            this.STT.VisibleIndex = 0;
-            // 
-            // ID
-            // 
-            this.ID.AppearanceHeader.Options.UseTextOptions = true;
-            this.ID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.ID.Caption = "ID";
-            this.ID.FieldName = "ID";
-            this.ID.MaxWidth = 58;
-            this.ID.MinWidth = 58;
-            this.ID.Name = "ID";
-            this.ID.Width = 58;
-            // 
-            // NAME
-            // 
-            this.NAME.Caption = "Tên";
-            this.NAME.FieldName = "NAME";
-            this.NAME.Name = "NAME";
-            this.NAME.Visible = true;
-            this.NAME.VisibleIndex = 1;
-            // 
-            // CODE
-            // 
-            this.CODE.Caption = "Mã";
-            this.CODE.FieldName = "CODE";
-            this.CODE.Name = "CODE";
-            this.CODE.Visible = true;
-            this.CODE.VisibleIndex = 2;
-            // 
-            // STATUS
-            // 
-            this.STATUS.Caption = "Trạng thái";
-            this.STATUS.FieldName = "STATUS";
-            this.STATUS.Name = "STATUS";
-            this.STATUS.Visible = true;
-            this.STATUS.VisibleIndex = 3;
-            // 
-            // CREATE_BY
-            // 
-            this.CREATE_BY.Caption = "Người tạo";
-            this.CREATE_BY.FieldName = "CREATE_BY";
-            this.CREATE_BY.Name = "CREATE_BY";
-            this.CREATE_BY.Visible = true;
-            this.CREATE_BY.VisibleIndex = 4;
-            // 
-            // CREATE_AT
-            // 
-            this.CREATE_AT.Caption = "Ngày tạo";
-            this.CREATE_AT.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
-            this.CREATE_AT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.CREATE_AT.FieldName = "CREATE_AT";
-            this.CREATE_AT.Name = "CREATE_AT";
-            this.CREATE_AT.Visible = true;
-            this.CREATE_AT.VisibleIndex = 5;
-            // 
-            // UPDATE_BY
-            // 
-            this.UPDATE_BY.Caption = "Người chỉnh sửa";
-            this.UPDATE_BY.FieldName = "UPDATE_BY";
-            this.UPDATE_BY.Name = "UPDATE_BY";
-            this.UPDATE_BY.Visible = true;
-            this.UPDATE_BY.VisibleIndex = 6;
-            // 
-            // UPDATE_AT
-            // 
-            this.UPDATE_AT.Caption = "Ngày chỉnh sửa";
-            this.UPDATE_AT.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
-            this.UPDATE_AT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.UPDATE_AT.FieldName = "UPDATE_AT";
-            this.UPDATE_AT.Name = "UPDATE_AT";
-            this.UPDATE_AT.Visible = true;
-            this.UPDATE_AT.VisibleIndex = 7;
-            // 
-            // bar2
-            // 
-            this.bar2.BarName = "Main menu";
-            this.bar2.DockCol = 0;
-            this.bar2.DockRow = 0;
-            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar2.FloatLocation = new System.Drawing.Point(110, 129);
-            this.bar2.OptionsBar.MultiLine = true;
-            this.bar2.OptionsBar.UseWholeRow = true;
-            this.bar2.Text = "Main menu";
+            this.txtNote.Location = new System.Drawing.Point(276, 90);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.txtNote.MenuManager = this.barManager1;
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(465, 22);
+            this.txtNote.TabIndex = 38;
             // 
             // barManager1
             // 
@@ -605,40 +450,213 @@
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 512);
             // 
-            // pictureEdit1
+            // btnUpdateImage
             // 
-            this.pictureEdit1.Location = new System.Drawing.Point(34, 25);
-            this.pictureEdit1.MenuManager = this.barManager2;
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(118, 96);
-            this.pictureEdit1.TabIndex = 36;
+            this.btnUpdateImage.Location = new System.Drawing.Point(35, 126);
+            this.btnUpdateImage.Name = "btnUpdateImage";
+            this.btnUpdateImage.Size = new System.Drawing.Size(117, 23);
+            this.btnUpdateImage.TabIndex = 37;
+            this.btnUpdateImage.Text = "Tải ảnh lên";
+            this.btnUpdateImage.Click += new System.EventHandler(this.btnUpdateImage_Click);
             // 
-            // simpleButton7
+            // picBrand
             // 
-            this.simpleButton7.Location = new System.Drawing.Point(35, 126);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(117, 23);
-            this.simpleButton7.TabIndex = 37;
-            this.simpleButton7.Text = "Tải ảnh lên";
+            this.picBrand.Location = new System.Drawing.Point(34, 25);
+            this.picBrand.MenuManager = this.barManager2;
+            this.picBrand.Name = "picBrand";
+            this.picBrand.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.picBrand.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.picBrand.Size = new System.Drawing.Size(118, 96);
+            this.picBrand.TabIndex = 36;
             // 
-            // labelControl3
+            // labelControl2
             // 
-            this.labelControl3.Location = new System.Drawing.Point(216, 96);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(42, 16);
-            this.labelControl3.TabIndex = 39;
-            this.labelControl3.Text = "Ghi chú";
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Appearance.Options.UseForeColor = true;
+            this.labelControl2.Location = new System.Drawing.Point(174, 136);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(150, 13);
+            this.labelControl2.TabIndex = 35;
+            this.labelControl2.Text = "(*) : Các trường bắt buộc nhập";
             // 
-            // txtNote
+            // labelControl1
             // 
-            this.txtNote.Location = new System.Drawing.Point(276, 90);
-            this.txtNote.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.txtNote.MenuManager = this.barManager1;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(465, 22);
-            this.txtNote.TabIndex = 38;
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(466, 51);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(8, 16);
+            this.labelControl1.TabIndex = 34;
+            this.labelControl1.Text = "*";
+            // 
+            // lblStartRequid
+            // 
+            this.lblStartRequid.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblStartRequid.Appearance.Options.UseForeColor = true;
+            this.lblStartRequid.Location = new System.Drawing.Point(166, 55);
+            this.lblStartRequid.Name = "lblStartRequid";
+            this.lblStartRequid.Size = new System.Drawing.Size(8, 16);
+            this.lblStartRequid.TabIndex = 33;
+            this.lblStartRequid.Text = "*";
+            // 
+            // txtCodeBrand
+            // 
+            this.txtCodeBrand.Location = new System.Drawing.Point(571, 53);
+            this.txtCodeBrand.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.txtCodeBrand.MenuManager = this.barManager2;
+            this.txtCodeBrand.Name = "txtCodeBrand";
+            this.txtCodeBrand.Size = new System.Drawing.Size(170, 22);
+            this.txtCodeBrand.TabIndex = 31;
+            // 
+            // lblCode
+            // 
+            this.lblCode.Location = new System.Drawing.Point(474, 56);
+            this.lblCode.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(89, 16);
+            this.lblCode.TabIndex = 32;
+            this.lblCode.Text = "Mã thương hiệu";
+            // 
+            // lblName
+            // 
+            this.lblName.Location = new System.Drawing.Point(176, 56);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(94, 16);
+            this.lblName.TabIndex = 30;
+            this.lblName.Text = "Tên thương hiệu";
+            // 
+            // gvDanhSach
+            // 
+            this.gvDanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvDanhSach.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.gvDanhSach.Location = new System.Drawing.Point(10, 10);
+            this.gvDanhSach.MainView = this.grvDanhSach;
+            this.gvDanhSach.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.gvDanhSach.Name = "gvDanhSach";
+            this.gvDanhSach.Size = new System.Drawing.Size(1165, 293);
+            this.gvDanhSach.TabIndex = 0;
+            this.gvDanhSach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvDanhSach});
+            // 
+            // grvDanhSach
+            // 
+            this.grvDanhSach.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.STT,
+            this.ID,
+            this.NAME,
+            this.CODE,
+            this.AVATAR,
+            this.STATUS,
+            this.CREATE_BY,
+            this.CREATE_AT,
+            this.UPDATE_BY,
+            this.UPDATE_AT});
+            this.grvDanhSach.GridControl = this.gvDanhSach;
+            this.grvDanhSach.Name = "grvDanhSach";
+            this.grvDanhSach.OptionsView.ShowGroupPanel = false;
+            this.grvDanhSach.Click += new System.EventHandler(this.grvDanhSach_Click);
+            // 
+            // STT
+            // 
+            this.STT.Caption = "STT";
+            this.STT.FieldName = "STT";
+            this.STT.Name = "STT";
+            this.STT.Visible = true;
+            this.STT.VisibleIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.AppearanceHeader.Options.UseTextOptions = true;
+            this.ID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.ID.Caption = "ID";
+            this.ID.FieldName = "ID";
+            this.ID.MaxWidth = 58;
+            this.ID.MinWidth = 58;
+            this.ID.Name = "ID";
+            this.ID.Width = 58;
+            // 
+            // NAME
+            // 
+            this.NAME.Caption = "Tên";
+            this.NAME.FieldName = "NAME";
+            this.NAME.Name = "NAME";
+            this.NAME.Visible = true;
+            this.NAME.VisibleIndex = 1;
+            // 
+            // CODE
+            // 
+            this.CODE.Caption = "Mã";
+            this.CODE.FieldName = "CODE";
+            this.CODE.Name = "CODE";
+            this.CODE.Visible = true;
+            this.CODE.VisibleIndex = 2;
+            // 
+            // AVATAR
+            // 
+            this.AVATAR.Caption = "Hình ảnh";
+            this.AVATAR.FieldName = "AVATAR";
+            this.AVATAR.Name = "AVATAR";
+            this.AVATAR.Visible = true;
+            this.AVATAR.VisibleIndex = 3;
+            // 
+            // STATUS
+            // 
+            this.STATUS.Caption = "Trạng thái";
+            this.STATUS.FieldName = "STATUS";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.Visible = true;
+            this.STATUS.VisibleIndex = 4;
+            // 
+            // CREATE_BY
+            // 
+            this.CREATE_BY.Caption = "Người tạo";
+            this.CREATE_BY.FieldName = "CREATE_BY";
+            this.CREATE_BY.Name = "CREATE_BY";
+            this.CREATE_BY.Visible = true;
+            this.CREATE_BY.VisibleIndex = 5;
+            // 
+            // CREATE_AT
+            // 
+            this.CREATE_AT.Caption = "Ngày tạo";
+            this.CREATE_AT.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            this.CREATE_AT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.CREATE_AT.FieldName = "CREATE_AT";
+            this.CREATE_AT.Name = "CREATE_AT";
+            this.CREATE_AT.Visible = true;
+            this.CREATE_AT.VisibleIndex = 6;
+            // 
+            // UPDATE_BY
+            // 
+            this.UPDATE_BY.Caption = "Người chỉnh sửa";
+            this.UPDATE_BY.FieldName = "UPDATE_BY";
+            this.UPDATE_BY.Name = "UPDATE_BY";
+            this.UPDATE_BY.Visible = true;
+            this.UPDATE_BY.VisibleIndex = 7;
+            // 
+            // UPDATE_AT
+            // 
+            this.UPDATE_AT.Caption = "Ngày chỉnh sửa";
+            this.UPDATE_AT.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            this.UPDATE_AT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.UPDATE_AT.FieldName = "UPDATE_AT";
+            this.UPDATE_AT.Name = "UPDATE_AT";
+            this.UPDATE_AT.Visible = true;
+            this.UPDATE_AT.VisibleIndex = 8;
+            // 
+            // bar2
+            // 
+            this.bar2.BarName = "Main menu";
+            this.bar2.DockCol = 0;
+            this.bar2.DockRow = 0;
+            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar2.FloatLocation = new System.Drawing.Point(110, 129);
+            this.bar2.OptionsBar.MultiLine = true;
+            this.bar2.OptionsBar.UseWholeRow = true;
+            this.bar2.Text = "Main menu";
             // 
             // frmBrand
             // 
@@ -659,6 +677,7 @@
             this.IconOptions.SvgImage = global::Stock.Properties.Resources.bo_address;
             this.Name = "frmBrand";
             this.Text = "Thương hiệu";
+            this.Load += new System.EventHandler(this.frmBrand_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
@@ -671,12 +690,12 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodeCategory.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvRowData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBrand.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodeBrand.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDanhSach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvDanhSach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -701,11 +720,11 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl lblStartRequid;
-        private DevExpress.XtraEditors.TextEdit txtCodeCategory;
+        private DevExpress.XtraEditors.TextEdit txtCodeBrand;
         private DevExpress.XtraEditors.LabelControl lblCode;
         private DevExpress.XtraEditors.LabelControl lblName;
         private DevExpress.XtraGrid.GridControl gvDanhSach;
-        private DevExpress.XtraGrid.Views.Grid.GridView grvRowData;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvDanhSach;
         private DevExpress.XtraGrid.Columns.GridColumn STT;
         private DevExpress.XtraGrid.Columns.GridColumn ID;
         private DevExpress.XtraGrid.Columns.GridColumn NAME;
@@ -731,9 +750,10 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.SimpleButton btnUpdateImage;
+        private DevExpress.XtraEditors.PictureEdit picBrand;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit txtNote;
+        private DevExpress.XtraGrid.Columns.GridColumn AVATAR;
     }
 }

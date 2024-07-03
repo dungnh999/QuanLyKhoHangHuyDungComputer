@@ -48,7 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Brand.cs" />
     <Compile Include="CategoryProducts.cs" />
+    <Compile Include="DTO\BrandDTO.cs" />
     <Compile Include="DTO\CategoryProductsDTO.cs" />
     <Compile Include="DTO\SupplierDTO.cs" />
     <Compile Include="ExceptionHandler.cs" />

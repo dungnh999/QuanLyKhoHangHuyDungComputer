@@ -209,7 +209,7 @@ namespace Stock
                "Xác nhận",
                MessageBoxButtons.YesNo,
                MessageBoxIcon.Question
-           );
+            );
 
             if (result == DialogResult.Yes)
             {

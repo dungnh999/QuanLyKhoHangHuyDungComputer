@@ -38,7 +38,7 @@
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemHypertextLabel1 = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
             this.lblUserName = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.mnBrand = new DevExpress.XtraBars.BarButtonItem();
             this.mnCategoryProduct = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
@@ -58,6 +58,7 @@
             // 
             // ribbonControl1
             // 
+            this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(35, 37, 35, 37);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
@@ -68,13 +69,15 @@
             this.mnSupplier,
             this.barEditItem1,
             this.lblUserName,
-            this.barButtonItem5,
+            this.mnBrand,
             this.mnCategoryProduct,
             this.barButtonItem7,
             this.barButtonItem4});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonControl1.MaxItemId = 11;
             this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.OptionsMenuMinWidth = 385;
             this.ribbonControl1.OptionsTouch.AffectOnlyRibbon = true;
             this.ribbonControl1.PageHeaderItemLinks.Add(this.lblUserName);
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -82,7 +85,7 @@
             this.ribbonPage1});
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemHypertextLabel1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1516, 177);
+            this.ribbonControl1.Size = new System.Drawing.Size(1769, 182);
             // 
             // barButtonItem1
             // 
@@ -141,21 +144,22 @@
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // barButtonItem5
+            // mnBrand
             // 
-            this.barButtonItem5.Caption = "Thương hiệu";
-            this.barButtonItem5.Id = 7;
-            this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
-            this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
-            this.barButtonItem5.LargeWidth = 70;
-            this.barButtonItem5.Name = "barButtonItem5";
+            this.mnBrand.Caption = "Thương hiệu";
+            this.mnBrand.Id = 7;
+            this.mnBrand.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
+            this.mnBrand.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.mnBrand.LargeWidth = 70;
+            this.mnBrand.Name = "mnBrand";
+            this.mnBrand.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnBrand_ItemClick);
             // 
             // mnCategoryProduct
             // 
             this.mnCategoryProduct.Caption = "Danh mục";
             this.mnCategoryProduct.Id = 8;
-            this.mnCategoryProduct.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
-            this.mnCategoryProduct.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
+            this.mnCategoryProduct.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mnCategoryProduct.ImageOptions.Image")));
+            this.mnCategoryProduct.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("mnCategoryProduct.ImageOptions.LargeImage")));
             this.mnCategoryProduct.LargeWidth = 70;
             this.mnCategoryProduct.Name = "mnCategoryProduct";
             this.mnCategoryProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.mnCategoryProduct_ItemClick);
@@ -190,7 +194,7 @@
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.mnCategoryProduct, true);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem5, true);
+            this.ribbonPageGroup2.ItemLinks.Add(this.mnBrand, true);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem7, true);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Thông tin thiết lập";
@@ -236,12 +240,13 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1516, 613);
+            this.ClientSize = new System.Drawing.Size(1769, 754);
             this.Controls.Add(this.ribbonControl1);
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("MainForm.IconOptions.Image")));
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Ribbon = this.ribbonControl1;
             this.Text = " ";
@@ -271,7 +276,7 @@
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel repositoryItemHypertextLabel1;
         public DevExpress.XtraBars.BarStaticItem lblUserName;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarButtonItem mnBrand;
         private DevExpress.XtraBars.BarButtonItem mnCategoryProduct;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;

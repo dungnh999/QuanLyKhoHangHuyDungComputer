@@ -63,5 +63,10 @@ namespace Stock
         {
             openForm(typeof(frmCategoryProduct));
         }
+
+        private void mnBrand_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            openForm(typeof(frmBrand));
+        }
     }
 }

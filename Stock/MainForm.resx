@@ -495,7 +495,7 @@
         oL8BzDrezU0cdxMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="barButtonItem6.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="mnCategoryProduct.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAXdEVYdFRpdGxlAFByb2R1Y3Q7UHJvZHVjdHM7c0vM
@@ -515,7 +515,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="barButtonItem6.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="mnCategoryProduct.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAXdEVYdFRpdGxlAFByb2R1Y3Q7UHJvZHVjdHM7c0vM
@@ -708,7 +708,7 @@
   <data name="MainForm.IconOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAULxJREFUeF7tnQncVmP6+P+iVSm0iDYtWkYqWUISKQ0thihblspkG9kjTCSyJ0OJ
+        vAAADrwBlbxySQAAULxJREFUeF7tnQncVmP6+P+iVSm0iDYtWkYqWUISKQ0thihblspkG9kjTCSyJ0OJ
         TMag5NeQZZJJ0VCoJFKSlKm0oLRpv/9zHfdj3t6u9322c57n3Od8v5/P90PXe57znOU+9/Wcc+7l//0X
         g4iIiM6rBhEREdEt1SAiIiK6pRpEREREt1SDiIiI6JZqEBEREd1SDSIiIqJbqkFERER0SzWIiIiIbqkG
         ERER0S3VICIiIrqlGkRERES3VIOIiIjolmoQERER3VINIiIioluqQURERHRLNYiIiIhuqQYRERHRLdUg

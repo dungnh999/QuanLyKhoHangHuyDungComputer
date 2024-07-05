@@ -98,11 +98,23 @@
     <Compile Include="frmConnect.Designer.cs">
       <DependentUpon>frmConnect.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGroupOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGroupOption.Designer.cs">
+      <DependentUpon>frmGroupOption.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptionProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptionProducts.Designer.cs">
+      <DependentUpon>frmOptionProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -133,8 +145,14 @@
     <EmbeddedResource Include="frmConnect.resx">
       <DependentUpon>frmConnect.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGroupOption.resx">
+      <DependentUpon>frmGroupOption.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptionProducts.resx">
+      <DependentUpon>frmOptionProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -211,6 +229,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bo_address.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viewsettings.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\properties3.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

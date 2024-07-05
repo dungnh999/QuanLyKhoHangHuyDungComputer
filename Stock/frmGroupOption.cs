@@ -2,33 +2,40 @@
 using DataLayer;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.Wizards.Native;
-using DevExpress.XtraRichEdit.Import.Html;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DevExpress.Xpo.Helpers.AssociatedCollectionCriteriaHelper;
 
 namespace Stock
 {
-    public partial class frmBrand : DevExpress.XtraEditors.XtraForm
+    public partial class frmGroupOption : DevExpress.XtraEditors.XtraForm
     {
-        public frmBrand()
+        public frmGroupOption()
         {
             InitializeComponent();
         }
 
+        private void labelControl2_Click(object sender, EventArgs e)
+        {
+
+        }
+        GroupOption _groupOption;
         DialogResult result;
-        Brand _brand;
         bool _actionAdd;
         int _id = 0;
         string _status = "0";
+
+        private void frmGroupOption_Load(object sender, EventArgs e)
+        {
+            _showHide(true);
+            loadData();
+        }
 
         void _showHide(bool kt)
         {
@@ -38,35 +45,26 @@ namespace Stock
             bbtnEdit.Enabled = kt;
             bbtnRemove.Enabled = kt;
             txtName.Enabled = !kt;
-            txtCodeBrand.Enabled = !kt;
-            txtNote.Enabled = !kt;
-            picBrand.Enabled = !kt;
-            btnUpdateImage.Enabled = !kt;
-        }
-
-        private void frmBrand_Load(object sender, EventArgs e)
-        {
-            _showHide(true);
-            loadData();
-        }
-
-        public void loadData()
-        {
-            _brand = new Brand();
-            gvDanhSach.DataSource = _brand.getAll();
-            grvDanhSach.OptionsBehavior.Editable = false;
         }
 
         void _reset()
         {
             txtName.Text = "";
-            txtCodeBrand.Text = "";
-            txtNote.Text = "";
-            picBrand.Image = null;
-
         }
 
+        public void loadData()
+        {
+            _groupOption = new GroupOption();
+            gvDanhSach.DataSource = _groupOption.getAll();
+            grvDanhSach.OptionsBehavior.Editable = false;
+        }
 
+        private void bbtnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            _actionAdd = true;
+            _reset();
+            _showHide(false);
+        }
 
         void saveData()
         {
@@ -76,14 +74,12 @@ namespace Stock
                 {
                     try
                     {
-                        tb_Brand sp = new tb_Brand();
+                        tb_Group_Option sp = new tb_Group_Option();
                         sp.NAME = txtName.Text;
-                        sp.CODE = txtCodeBrand.Text;
                         sp.STATUS = 1;
-                        sp.AVATAR = ImageToBase64(picBrand.Image, picBrand.Image.RawFormat);
                         sp.CREATE_BY = Common.UserPublic.ID;
                         sp.CREATE_AT = DateTime.Now;
-                        _brand.Add(sp);
+                        _groupOption.Add(sp);
                         _reset();
                         loadData();
                         _showHide(true);
@@ -97,14 +93,12 @@ namespace Stock
                 {
                     try
                     {
-                        tb_Brand sp = _brand.getItem(_id);
+                        tb_Group_Option sp = _groupOption.getItem(_id);
                         sp.NAME = txtName.Text;
-                        sp.CODE = txtCodeBrand.Text;
                         sp.STATUS = 1;
                         sp.UPDATE_BY = Common.UserPublic.ID;
-                        sp.AVATAR = ImageToBase64(picBrand.Image, picBrand.Image.RawFormat);
                         sp.UPDATE_AT = DateTime.Now;
-                        _brand.Update(sp);
+                        _groupOption.Update(sp);
                         _reset();
                         loadData();
                         _showHide(true);
@@ -121,38 +115,26 @@ namespace Stock
             }
         }
 
-        private void bbtnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bbtnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _actionAdd = true;
-            _reset();
-            _showHide(false);
+            loadData();
         }
 
+        private void bbtnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            saveData();
+        }
 
-
-        private void grvDanhSach_Click(object sender, EventArgs e)
+        private void grvRowData_Click(object sender, EventArgs e)
         {
             if (grvDanhSach.RowCount > 0)
             {
                 if (_id != int.Parse(grvDanhSach.GetFocusedRowCellValue("ID").ToString()))
                 {
                     _id = int.Parse(grvDanhSach.GetFocusedRowCellValue("ID").ToString());
-                    tb_Brand dt = _brand.getItem(_id);
+                    tb_Group_Option dt = _groupOption.getItem(_id);
                     _status = (dt.STATUS).ToString();
                     txtName.Text = dt.NAME;
-                    txtCodeBrand.Text = dt.CODE;
-                    if (dt.AVATAR != null && dt.AVATAR.Length != 0)
-                    {
-                        picBrand.Image = Base64ToImage(dt.AVATAR);
-                    }
-                    else
-                    {
-                        // Set a default image or handle the empty case
-                        picBrand.Image = null; // Or use picBrand.Image = Image.FromFile("path_to_default_image.jpg");
-                    }
-
-
-
                     if (dt.STATUS == 1)
                     {
                         bbtnRemove.Caption = "Tắt hoạt động";
@@ -167,14 +149,22 @@ namespace Stock
             }
         }
 
-        private void bbtnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bbtnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            saveData();
+            if (txtName.Text != "")
+            {
+                _actionAdd = false;
+                _showHide(false);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn dữ liệu muốn sửa ?", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private byte[] GetAvatarEmpty()
+        private void bbtn_cancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            return null; 
+            _showHide(true);
         }
 
         private void bbtnRemove_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -190,11 +180,11 @@ namespace Stock
             {
                 try
                 {
-                    tb_Brand sp = _brand.getItem(_id);
+                    tb_Group_Option sp = _groupOption.getItem(_id);
                     sp.STATUS = 1;
                     sp.UPDATE_BY = Common.UserPublic.ID;
                     sp.UPDATE_AT = DateTime.Now;
-                    _brand.changeStatus(sp);
+                    _groupOption.changeStatus(sp);
                     _reset();
                     loadData();
                     _showHide(true);
@@ -204,62 +194,6 @@ namespace Stock
                     MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void bbtnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (txtName.Text != "")
-            {
-                _actionAdd = false;
-                _showHide(false);
-                txtCodeBrand.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn dữ liệu muốn sửa ?", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void bbtn_cancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            _showHide(true);
-        }
-
-        private void bbtnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            loadData();
-        }
-
-        private void btnUpdateImage_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Title = "Select an Image";
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    picBrand.Image = Image.FromFile(openFileDialog.FileName);
-                }
-            }
-        }
-
-
-        public byte[] ImageToBase64(Image image, System.Drawing.Imaging.ImageFormat format)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, format);
-                byte[] imageBytes = ms.ToArray();
-                return imageBytes;
-            }
-        }
-
-        public Image Base64ToImage(byte[] imageBytes) { 
-            MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length);
-            ms.Write(imageBytes, 0 , imageBytes.Length);
-            Image image = Image.FromStream(ms, true);
-            return image;
         }
     }
 }

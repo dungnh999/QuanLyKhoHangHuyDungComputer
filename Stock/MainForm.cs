@@ -68,5 +68,15 @@ namespace Stock
         {
             openForm(typeof(frmBrand));
         }
+
+        private void mnGroupOption_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            openForm(typeof(frmGroupOption));
+        }
+
+        private void mnOption_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            openForm(typeof(frmOptionProducts));
+        }
     }
 }

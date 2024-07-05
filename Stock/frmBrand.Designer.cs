@@ -564,9 +564,12 @@
             // 
             this.STT.Caption = "STT";
             this.STT.FieldName = "STT";
+            this.STT.MaxWidth = 50;
+            this.STT.MinWidth = 50;
             this.STT.Name = "STT";
             this.STT.Visible = true;
             this.STT.VisibleIndex = 0;
+            this.STT.Width = 50;
             // 
             // ID
             // 
@@ -574,10 +577,10 @@
             this.ID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.ID.Caption = "ID";
             this.ID.FieldName = "ID";
-            this.ID.MaxWidth = 58;
-            this.ID.MinWidth = 58;
+            this.ID.MaxWidth = 50;
+            this.ID.MinWidth = 50;
             this.ID.Name = "ID";
-            this.ID.Width = 58;
+            this.ID.Width = 50;
             // 
             // NAME
             // 
@@ -585,7 +588,7 @@
             this.NAME.FieldName = "NAME";
             this.NAME.Name = "NAME";
             this.NAME.Visible = true;
-            this.NAME.VisibleIndex = 1;
+            this.NAME.VisibleIndex = 2;
             // 
             // CODE
             // 
@@ -593,15 +596,18 @@
             this.CODE.FieldName = "CODE";
             this.CODE.Name = "CODE";
             this.CODE.Visible = true;
-            this.CODE.VisibleIndex = 2;
+            this.CODE.VisibleIndex = 3;
             // 
             // AVATAR
             // 
             this.AVATAR.Caption = "Hình ảnh";
             this.AVATAR.FieldName = "AVATAR";
+            this.AVATAR.MaxWidth = 70;
+            this.AVATAR.MinWidth = 70;
             this.AVATAR.Name = "AVATAR";
             this.AVATAR.Visible = true;
-            this.AVATAR.VisibleIndex = 3;
+            this.AVATAR.VisibleIndex = 1;
+            this.AVATAR.Width = 70;
             // 
             // STATUS
             // 

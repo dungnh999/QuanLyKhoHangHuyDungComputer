@@ -4,14 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c97d8b334e0b4b2ca9ea93c899434d43" Name="Diagram1">
+      <Diagram DiagramId="a76f3bf4b04a4fce836acc1cd72543b4" Name="Diagram1">
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Brand" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Category" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Products" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Supplier" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Supplier_Type" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Unit" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Users" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Brand" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Group_Option" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Products" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Supplier" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Supplier_Type" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Unit" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Users" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHuyDungComputerModel.tb_Option" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

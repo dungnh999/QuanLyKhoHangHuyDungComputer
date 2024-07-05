@@ -75,6 +75,12 @@
     <Compile Include="tb_Category.cs">
       <DependentUpon>KHOHANG.tt</DependentUpon>
     </Compile>
+    <Compile Include="tb_Group_Option.cs">
+      <DependentUpon>KHOHANG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Option.cs">
+      <DependentUpon>KHOHANG.tt</DependentUpon>
+    </Compile>
     <Compile Include="tb_Products.cs">
       <DependentUpon>KHOHANG.tt</DependentUpon>
     </Compile>

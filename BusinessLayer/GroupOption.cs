@@ -8,31 +8,28 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class Brand
+    public class GroupOption
     {
         Entities db;
-        Brand _brand;
 
-        public Brand()
+        public GroupOption()
         {
             db = Entities.CreateEntities();
         }
 
-        public List<BrandDTO> getAll()
+        public List<GroupOptionDTO> getAll()
         {
-            var sortedList = db.tb_Brand.ToList();
+            var sortedList = db.tb_Group_Option.ToList();
             var list = sortedList.OrderByDescending(x => x.STATUS).ToList();
-            List<BrandDTO> listNew = new List<BrandDTO>();
-            BrandDTO gvDTO;
+            List<GroupOptionDTO> listNew = new List<GroupOptionDTO>();
+            GroupOptionDTO gvDTO;
             int number = 1;
 
             foreach (var item in list)
             {
-                gvDTO = new BrandDTO();
-                gvDTO.STT = number++;
+                gvDTO = new GroupOptionDTO();
+                gvDTO.STT = number++.ToString();
                 gvDTO.ID = item.ID;
-                gvDTO.CODE = item.CODE;
-                gvDTO.AVATAR = item.AVATAR;
                 gvDTO.NAME = item.NAME;
                 gvDTO.CREATE_BY = (item.CREATE_BY != null) ? db.tb_Users.FirstOrDefault(x => x.ID == item.CREATE_BY).NAME : "";
                 gvDTO.UPDATE_BY = (item.UPDATE_BY != null) ? db.tb_Users.FirstOrDefault(x => x.ID == item.UPDATE_BY).NAME : "";
@@ -44,12 +41,12 @@ namespace BusinessLayer
             return listNew;
         }
 
-        public tb_Brand Add(tb_Brand sp)
+        public tb_Group_Option Add(tb_Group_Option sp)
         {
-            tb_Brand result = null;
+            tb_Group_Option result = null;
             ExceptionHandler.Handle(() =>
             {
-                db.tb_Brand.Add(sp);
+                db.tb_Group_Option.Add(sp);
                 db.SaveChanges();
                 result = sp;
             });
@@ -57,16 +54,16 @@ namespace BusinessLayer
             return result;
         }
 
-        public tb_Brand getItem(int id)
+        public tb_Group_Option getItem(int id)
         {
-            return db.tb_Brand.FirstOrDefault(x => x.ID == id);
+            return db.tb_Group_Option.FirstOrDefault(x => x.ID == id);
         }
 
-        public tb_Brand Update(tb_Brand sp)
+        public tb_Group_Option Update(tb_Group_Option sp)
         {
             try
             {
-                var _data = db.tb_Brand.FirstOrDefault(x => x.ID == sp.ID);
+                var _data = db.tb_Group_Option.FirstOrDefault(x => x.ID == sp.ID);
                 if (_data != null)
                 {
                     _data.NAME = sp.NAME;
@@ -82,11 +79,11 @@ namespace BusinessLayer
             }
         }
 
-        public tb_Brand changeStatus(tb_Brand sp)
+        public tb_Group_Option changeStatus(tb_Group_Option sp)
         {
             try
             {
-                var _data = db.tb_Brand.FirstOrDefault(x => x.ID == sp.ID);
+                var _data = db.tb_Group_Option.FirstOrDefault(x => x.ID == sp.ID);
                 if (_data != null)
                 {
                     if (sp.STATUS == 1)

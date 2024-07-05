@@ -36,6 +36,35 @@
           <Property Name="UPDATE_AT" Type="datetime" />
           <Property Name="UPDATE_BY" Type="int" />
         </EntityType>
+        <EntityType Name="tb_Group_Option">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUS" Type="int" />
+          <Property Name="CREATE_AT" Type="datetime" />
+          <Property Name="CREATE_BY" Type="int" />
+          <Property Name="UPDATE_AT" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" />
+          <Property Name="SORT" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_Option">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="GROUP_ID" Type="int" />
+          <Property Name="PARENT_ID" Type="int" />
+          <Property Name="STATUS" Type="int" />
+          <Property Name="CODE" Type="varchar" MaxLength="50" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CREATE_AT" Type="datetime" />
+          <Property Name="CREATE_BY" Type="int" />
+          <Property Name="UPDATE_AT" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" />
+        </EntityType>
         <EntityType Name="tb_Products">
           <Key>
             <PropertyRef Name="ID" />
@@ -102,6 +131,8 @@
         <EntityContainer Name="QLHuyDungComputerModelStoreContainer">
           <EntitySet Name="tb_Brand" EntityType="Self.tb_Brand" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Category" EntityType="Self.tb_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Group_Option" EntityType="Self.tb_Group_Option" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Option" EntityType="Self.tb_Option" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Products" EntityType="Self.tb_Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Supplier" EntityType="Self.tb_Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Supplier_Type" EntityType="Self.tb_Supplier_Type" Schema="dbo" store:Type="Tables" />
@@ -112,6 +143,22 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLHuyDungComputerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AVATAR" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SORT" Type="Int32" />
+          <Property Name="NOTE" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" />
+          <Property Name="CREATE_AT" Type="DateTime" Precision="3" />
+          <Property Name="CREATE_BY" Type="Int32" />
+          <Property Name="UPDATE_AT" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" />
+        </EntityType>
         <EntityType Name="tb_Category">
           <Key>
             <PropertyRef Name="ID" />
@@ -126,6 +173,19 @@
           <Property Name="CREATE_BY" Type="Int32" />
           <Property Name="UPDATE_AT" Type="DateTime" Precision="3" />
           <Property Name="UPDATE_BY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_Group_Option">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" />
+          <Property Name="CREATE_AT" Type="DateTime" Precision="3" />
+          <Property Name="CREATE_BY" Type="Int32" />
+          <Property Name="UPDATE_AT" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" />
+          <Property Name="SORT" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_Products">
           <Key>
@@ -191,29 +251,31 @@
           <Property Name="CREATE_AT" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_Brand" EntityType="Self.tb_Brand" />
           <EntitySet Name="tb_Category" EntityType="Self.tb_Category" />
+          <EntitySet Name="tb_Group_Option" EntityType="Self.tb_Group_Option" />
           <EntitySet Name="tb_Products" EntityType="Self.tb_Products" />
           <EntitySet Name="tb_Supplier" EntityType="Self.tb_Supplier" />
           <EntitySet Name="tb_Supplier_Type" EntityType="Self.tb_Supplier_Type" />
           <EntitySet Name="tb_Unit" EntityType="Self.tb_Unit" />
           <EntitySet Name="tb_Users" EntityType="Self.tb_Users" />
-          <EntitySet Name="tb_Brand" EntityType="QLHuyDungComputerModel.tb_Brand" />
+          <EntitySet Name="tb_Option" EntityType="QLHuyDungComputerModel.tb_Option" />
         </EntityContainer>
-        <EntityType Name="tb_Brand">
+        <EntityType Name="tb_Option">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GROUP_ID" Type="Int32" />
+          <Property Name="PARENT_ID" Type="Int32" />
           <Property Name="CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AVATAR" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="SORT" Type="Int32" />
-          <Property Name="NOTE" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
-          <Property Name="STATUS" Type="Int32" />
+          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CREATE_AT" Type="DateTime" Precision="3" />
           <Property Name="CREATE_BY" Type="Int32" />
           <Property Name="UPDATE_AT" Type="DateTime" Precision="3" />
           <Property Name="UPDATE_BY" Type="Int32" />
+          <Property Name="STATUS" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -221,6 +283,23 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QLHuyDungComputerModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="tb_Brand">
+            <EntityTypeMapping TypeName="QLHuyDungComputerModel.tb_Brand">
+              <MappingFragment StoreEntitySet="tb_Brand">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CREATE_AT" ColumnName="CREATE_AT" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="UPDATE_AT" ColumnName="UPDATE_AT" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tb_Category">
             <EntityTypeMapping TypeName="QLHuyDungComputerModel.tb_Category">
               <MappingFragment StoreEntitySet="tb_Category">
@@ -234,6 +313,20 @@
                 <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
                 <ScalarProperty Name="UPDATE_AT" ColumnName="UPDATE_AT" />
                 <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Group_Option">
+            <EntityTypeMapping TypeName="QLHuyDungComputerModel.tb_Group_Option">
+              <MappingFragment StoreEntitySet="tb_Group_Option">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CREATE_AT" ColumnName="CREATE_AT" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="UPDATE_AT" ColumnName="UPDATE_AT" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="SORT" ColumnName="SORT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -305,18 +398,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_Brand">
-            <EntityTypeMapping TypeName="QLHuyDungComputerModel.tb_Brand">
-              <MappingFragment StoreEntitySet="tb_Brand">
+          <EntitySetMapping Name="tb_Option">
+            <EntityTypeMapping TypeName="QLHuyDungComputerModel.tb_Option">
+              <MappingFragment StoreEntitySet="tb_Option">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
                 <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
                 <ScalarProperty Name="UPDATE_AT" ColumnName="UPDATE_AT" />
                 <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
                 <ScalarProperty Name="CREATE_AT" ColumnName="CREATE_AT" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
-                <ScalarProperty Name="SORT" ColumnName="SORT" />
-                <ScalarProperty Name="AVATAR" ColumnName="AVATAR" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
                 <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="GROUP_ID" ColumnName="GROUP_ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
